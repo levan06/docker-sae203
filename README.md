@@ -21,7 +21,6 @@ _(**Format :** Demi-groupe - NOM Prénom)_
 
 [docker-sae203](https://github.com/levan06)
 
-# docker-sae203
 
 ## Instructions pour lancer l'application
 
