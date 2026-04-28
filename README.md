@@ -34,7 +34,7 @@ ca250645@di-docker:~$ docker build -t equipev3-img .
 ca250645@di-docker:~$ docker run -d -p 8200:80 equipev3-img
 ```
 
-- Vérifier que l'application est en cours d'exécution. Pour ce faire, ouvrez un navigateur et tapez ```localhost:8200```
+- Vérifier que l'application est en cours d'exécution. Pour ce faire, ouvrez un navigateur et tapez ```di-docker:8200```
 
 - Vérifier que le conteneur associé est actif :
 ```shell
