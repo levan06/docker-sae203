@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="GitLab" content="width=device-width, initial-scale=1.0">
+    <title>Serveur GitLab</title>
+    <style>
+        :root {
+            --side-bg: #292961;
+            --main-bg: #ffffff;
+            --text: #333333;
+            --accent: #fc6d26;
+            --border: #e5e5e5;
+            --code-bg: #1e1e1e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            display: flex;
+            background-color: var(--main-bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .sidebar {
+            width: 260px;
+            height: 100vh;
+            background-color: var(--side-bg);
+            color: white;
+            position: fixed;
+            padding: 25px;
+            border-right: 4px solid var(--accent);
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .logo-icon {
+            background: var(--accent);
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-size: 1.1rem;
+        }
+
+        .nav-menu { list-style: none; }
+        .nav-menu li { margin-bottom: 18px; }
+        .nav-menu a {
+            color: #d1d2e0;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover { color: var(--accent); padding-left: 5px; }
+
+        .main-content {
+            margin-left: 260px;
+            padding: 60px 10%;
+            width: 100%;
+        }
+
+        header {
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+
+        h1 { font-size: 2.8rem; color: var(--side-bg); margin-bottom: 15px; }
+        h2 { font-size: 1.8rem; color: var(--side-bg); margin: 40px 0 20px 0; display: flex; align-items: center; gap: 10px; }
+        h2::before { content: ""; width: 4px; height: 24px; background: var(--accent); display: inline-block; }
+
+        .tag {
+            background: #eee;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .content-card {
+            background: #f9f9f9;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .grid-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 3px solid var(--accent);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .code-container {
+            background: var(--code-bg);
+            color: #efefef;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-container::after {
+            content: "DOCKERFILE";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 0.7rem;
+            color: #666;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: #999;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 4px solid var(--accent); }
+            .main-content { margin-left: 0; padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-icon">G</div>
+            <span>Documentation</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#definition">1. Définition</a></li>
+            <li><a href="#versions">2. Distributions</a></li>
+            <li><a href="#histoire">3. Histoire & Faits</a></li>
+            <li><a href="#fonctions">4. Fonctionnalités</a></li>
+            <li><a href="#docker">5. Guide Docker (SAE)</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header>
+            <span class="tag">SAE 2.03</span>
+            <h1>Guide du Serveur GitLab</h1>
+            <p>Tout comprendre sur la forge logicielle et son déploiement.</p>
+        </header>
+
+        <section id="definition">
+            <h2>Introduction</h2>
+            <p>
+                D'après Wikipédia, <strong>GitLab</strong> est un logiciel libre de forge basé sur Git. Il a été créé par Dmitriy Zaporozhets et Valery Sizov. C'est une plateforme complète qui permet de gérer tout le cycle de vie d'un projet informatique (DevOps).
+            </p>
+        </section>
+
+        <section id="versions">
+            <h2>Distributions (Open Core)</h2>
+            <div class="grid-info">
+                <div class="info-box">
+                    <h3>GitLab CE</h3>
+                    <p><em>Community Edition</em> : La version open source sous licence MIT que nous utilisons pour ce projet.</p>
+                </div>
+                <div class="info-box">
+                    <h3>GitLab EE</h3>
+                    <p><em>Enterprise Edition</em> : Version propriétaire avec des fonctionnalités supplémentaires pour les entreprises.</p>
+                </div>
+                <div class="info-box">
+                    <h3>GitLab.com</h3>
+                    <p>Le service en ligne (SaaS) qui héberge des millions de projets, similaire à GitHub.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="histoire">
+            <h2>Histoire & Chiffres</h2>
+            <div class="content-card">
+                <ul>
+                    <li><strong>Octobre 2011 :</strong> Lancement de la première version.</li>
+                    <li><strong>Juillet 2016 :</strong> Adoption explicite du modèle <em>Open Core</em>.</li>
+                    <li><strong>Utilisateurs célèbres :</strong> Utilisé par la NASA, SpaceX, IBM, le CERN et la GNOME Foundation.</li>
+                    <li><strong>Migration :</strong> En 2019, GitLab quitte Microsoft Azure pour Google Cloud Platform.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="fonctions">
+            <h2>Fonctionnalités Clés</h2>
+            <p>GitLab ne se contente pas de stocker du code, il propose également :</p>
+            <div class="grid-info">
+                <div class="info-box"><strong>CI/CD</strong> : Intégration et livraison continues.</div>
+                <div class="info-box"><strong>Suivi de bugs</strong> : Un système de tickets complet.</div>
+                <div class="info-box"><strong>Wiki</strong> : Une documentation par projet.</div>
+                <div class="info-box"><strong>Sécurité</strong> : Authentification LDAP et 2FA.</div>
+            </div>
+        </section>
+
+        <section id="docker">
+            <h2>Déploiement Docker (Projet SAE)</h2>
+            <p>Dans le cadre de la SAE 2.03, nous installons GitLab sur une base <strong>Debian</strong> vierge en utilisant un Dockerfile unique.</p>
+            <br>
+            <div class="code-container">
+<pre>
+FROM debian:latest
+
+# Installation des paquets requis
+RUN apt-get update && apt-get install -y \
+    curl openssh-server ca-certificates postfix
+
+# Récupération du dépôt GitLab CE
+RUN curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | bash
+
+# Installation du serveur
+RUN apt-get install -y gitlab-ce
+
+# Ports exposés
+EXPOSE 80 22
+</pre>
+            </div>
+        </section>
+
+        <footer>
+            <p>Projet SAE 2.03 - BUT Informatique - Sources : Wikipédia GitLab</p>
+        </footer>
+    </main>
+
+</body>
+</html>
