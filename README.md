@@ -21,24 +21,24 @@ Réception d'objets: 100% (27/27), 8.21 Kio | 2.74 Mio/s, fait.
 
 - Aller au référentiel :
 ```shell
-cd exempleDockerfile
+ca250645@di-docker:~$ cd exempleDockerfile
 ```
 
 - Construisez l'image décrite dans dockerfile avec docker build : 
 ```shell
-docker build -t <choisir-un-nom-pour-l'image> .
+ca250645@di-docker:~$ docker build -t <choisir-un-nom-pour-l'image> .
 ```
 
 - Lancer le serveur web :
 ```shell
-docker run -d -p 8080:80 <nom-de-l'image-choisie>
+ca250645@di-docker:~$ docker run -d -p 8080:80 <nom-de-l'image-choisie>
 ```
 
-- Vérifier que l'application est en cours d'exécution. Pour ce faire, ouvrez un navigateur et tapez ```localhost:8080```
+- Vérifier que l'application est en cours d'exécution. Pour ce faire, ouvrez un navigateur et tapez ```localhost:8200```
 
 - Vérifier que le conteneur associé est actif :
 ```shell
-docker ps
+ca250645@di-docker:~$ docker ps
 ```
 
 - La sortie de ```docker ps``` doit être similaire à :
@@ -49,10 +49,10 @@ b8f8f406b03c   httpd-juanlu   "httpd-foreground"   30 minutes ago   Up 30 minute
 
 - Finalement, arrêtez le conteneur avec la commande suivante (les dernières chiffres sont le code de hachage affiché par docker ps):
 ```shell
-docker stop b8f8f406b03c
+ca250645@di-docker:~$ docker stop b8f8f406b03c
 ```
 
 - Encore, si on souhaite supprimer le conteneur, on peut taper :
 ```shell
-docker rm b8f8f406b03c
+ca250645@di-docker:~$ docker rm b8f8f406b03c
 ```
