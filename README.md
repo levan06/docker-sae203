@@ -5,7 +5,6 @@
 - Site GitLab avec docker et HTML/CSS
 
 ## Membres de l'équipe
-_(**Format :** Demi-groupe - NOM Prénom)_
 
 - C1 - ACHAFIK Abdellah
 - C1 - BASLEY Max-Malo
