@@ -32,12 +32,6 @@ Docker version 29.4.1, build 055a478
 - Cloner le référentiel :
  ```shell
 ca250645@di-docker:~$ git clone git@github.com:levan06/docker-sae203.git
-Clonage dans 'docker-sae203'...
-remote: Enumerating objects: 27, done.
-remote: Counting objects: 100% (27/27), done.
-remote: Compressing objects: 100% (19/19), done.
-remote: Total 27 (delta 0), reused 27 (delta 0), pack-reused 0 (from 0)
-Réception d'objets: 100% (27/27), 8.21 Kio | 2.74 Mio/s, fait.
 ```
 
 - Aller au référentiel :
