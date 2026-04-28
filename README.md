@@ -26,12 +26,12 @@ ca250645@di-docker:~$ cd exempleDockerfile
 
 - Construisez l'image décrite dans dockerfile avec docker build : 
 ```shell
-ca250645@di-docker:~$ docker build -t <choisir-un-nom-pour-l'image> .
+ca250645@di-docker:~$ docker build -t equipev3-img .
 ```
 
 - Lancer le serveur web :
 ```shell
-ca250645@di-docker:~$ docker run -d -p 8080:80 <nom-de-l'image-choisie>
+ca250645@di-docker:~$ docker run -d -p 8200:80 equipev3-img
 ```
 
 - Vérifier que l'application est en cours d'exécution. Pour ce faire, ouvrez un navigateur et tapez ```localhost:8200```
@@ -43,16 +43,17 @@ ca250645@di-docker:~$ docker ps
 
 - La sortie de ```docker ps``` doit être similaire à :
 ```shell
-CONTAINER ID   IMAGE          COMMAND              CREATED          STATUS          PORTS                                   NAMES
-b8f8f406b03c   httpd-juanlu   "httpd-foreground"   30 minutes ago   Up 30 minutes   0.0.0.0:8080->80/tcp, :::8080->80/tcp   quirky_tesla
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                  NAMES
+0e5224a399fe   equipev3-img   "/usr/sbin/apache2ct…"   3 seconds ago    Up 2 seconds    0.0.0.0:8200->80/tcp   wizardly_lamport
+
 ```
 
 - Finalement, arrêtez le conteneur avec la commande suivante (les dernières chiffres sont le code de hachage affiché par docker ps):
 ```shell
-ca250645@di-docker:~$ docker stop b8f8f406b03c
+ca250645@di-docker:~$ docker stop 0e5224a399fe
 ```
 
 - Encore, si on souhaite supprimer le conteneur, on peut taper :
 ```shell
-ca250645@di-docker:~$ docker rm b8f8f406b03c
+ca250645@di-docker:~$ docker rm 0e5224a399fe
 ```
