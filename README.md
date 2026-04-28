@@ -15,11 +15,11 @@ _(**Format :** Demi-groupe - NOM Prénom)_
 ## Liens vers le site web du projet
 
 
-[docker-sae203](https://levan06.github.io/docker-sae203/html/)
+[Site web GitLab](https://levan06.github.io/docker-sae203/html/)
 
 ## Liens vers le dépôt github du projet
 
-[docker-sae203](https://github.com/levan06)
+[Dépôt sur GitHub](https://github.com/levan06)
 
 
 ## Instructions pour lancer l'application
